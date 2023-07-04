@@ -10,5 +10,19 @@ pipeline {
                 '''
             }
         }
+
+        stage('Build Yolo5 app') {
+   steps {
+       sh '''
+           aws ecr get-login-password --region eu-north-1 | docker login --username AWS --password-stdin 854171615125.dkr.ecr.eu-north-1.amazonaws.com
+            docker build -t anushka-yolo5 .
+            docker tag anushka-yolo5:latest 854171615125.dkr.ecr.eu-north-1.amazonaws.com/anushka-yolo5:${BUILD_NUMBER}
+            docker push 854171615125.dkr.ecr.eu-north-1.amazonaws.com/anushka-yolo5:{BUILD_NUMBER}
+       '''
+   }
+}
+
     }
+
+
 }
