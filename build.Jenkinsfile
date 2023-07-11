@@ -24,12 +24,8 @@ pipeline {
 }
 stage('Trigger Deploy') {
     steps {
-        build job: '<deploy-job-name>', wait: false, parameters: [
-            string(name: 'YOLO5_IMAGE_URL', value: "<full-url-to-docker-image>")
+        build job: 'deploy-yolo', wait: false, parameters: [
+            string(name: 'YOLO5_IMAGE_URL', value: 854171615125.dkr.ecr.eu-north-1.amazonaws.com/anushka-yolo5:latest)
         ]
     }
-}
-    }
-
-
 }

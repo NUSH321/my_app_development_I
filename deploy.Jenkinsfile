@@ -6,7 +6,7 @@ pipeline {
             steps {
                 sh '''
                 echo authenticate eks cluster
-                echo go to yolo5 deployment yaml file, and change the image to YOLO5_IMAGE_URL
+                echo go to k8s/yolo5.yaml and change the image to YOLO5_IMAGE_URL
                 echo "kubectl apply -f k8s/yolo5.yaml"
 
             }
